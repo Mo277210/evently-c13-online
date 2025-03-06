@@ -58,97 +58,104 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
                 ],
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List<Widget>.generate(3, (int index) {
-                return Container(
-                  width: 8.0,
-                  height: 8.0,
-                  margin: const EdgeInsets.symmetric(horizontal: 4.0),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: _currentPage == index
-                        ? AppColors.blue
-                        : backgroundColor,
-                    border: Border.all(
-                      color: AppColors.blue,
-                      width: 1.5,
-                    ),
-                  ),
-                );
-              }),
-            ),
-            const SizedBox(height: 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Stack(
+              alignment: Alignment.bottomCenter, // Align the stack content to the bottom center
               children: [
-                _currentPage != 0
-                    ? IconButton(
-                  onPressed: () {
-                    _pageController.previousPage(
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.ease,
-                    );
-                  },
-                  icon: Container(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: themeProvider.isDark() ? AppColors.dartPurple : Colors.white, // Use AppColors.dartPurple in dark mode
-                      border: Border.all(
-                        color: AppColors.blue,
-                        width: 1.5,
+                // Row for the arrows
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 32.0), // Add padding to make space for the dots
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      _currentPage != 0
+                          ? IconButton(
+                        onPressed: () {
+                          _pageController.previousPage(
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.ease,
+                          );
+                        },
+                        icon: Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: themeProvider.isDark() ? AppColors.dartPurple : Colors.white,
+                            border: Border.all(
+                              color: AppColors.blue,
+                              width: 1.5,
+                            ),
+                          ),
+                          padding: const EdgeInsets.all(8.0),
+                          child: Icon(Icons.arrow_back, color: AppColors.blue),
+                        ),
+                      )
+                          : const SizedBox(width: 48), // Placeholder for spacing
+                      _currentPage == 2
+                          ? IconButton(
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+                        },
+                        icon: Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: themeProvider.isDark() ? AppColors.dartPurple : Colors.white,
+                            border: Border.all(
+                              color: AppColors.blue,
+                              width: 1.5,
+                            ),
+                          ),
+                          padding: const EdgeInsets.all(8.0),
+                          child: Icon(Icons.arrow_forward, color: AppColors.blue),
+                        ),
+                      )
+                          : IconButton(
+                        onPressed: () {
+                          _pageController.nextPage(
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.ease,
+                          );
+                        },
+                        icon: Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: themeProvider.isDark() ? AppColors.dartPurple : Colors.white,
+                            border: Border.all(
+                              color: AppColors.blue,
+                              width: 1.5,
+                            ),
+                          ),
+                          padding: const EdgeInsets.all(8.0),
+                          child: Icon(Icons.arrow_forward, color: AppColors.blue),
+                        ),
                       ),
-                    ),
-                    padding: const EdgeInsets.all(8.0),
-                    child: Icon(Icons.arrow_back,
-                        color: AppColors.blue),
+                    ],
                   ),
-                )
-                    : const SizedBox(width: 48),
-                _currentPage == 2
-                    ? IconButton(
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(
-                        context, LoginScreen.routeName);
-                  },
-                  icon: Container(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: themeProvider.isDark() ? AppColors.dartPurple : Colors.white, // Use AppColors.dartPurple in dark mode
-                      border: Border.all(
-                        color: AppColors.blue,
-                        width: 1.5,
-                      ),
-                    ),
-                    padding: const EdgeInsets.all(8.0),
-                    child: Icon(Icons.arrow_forward,
-                        color: AppColors.blue),
-                  ),
-                )
-                    : IconButton(
-                  onPressed: () {
-                    _pageController.nextPage(
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.ease,
-                    );
-                  },
-                  icon: Container(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: themeProvider.isDark() ? AppColors.dartPurple : Colors.white, // Use AppColors.dartPurple in dark mode
-                      border: Border.all(
-                        color: AppColors.blue,
-                        width: 1.5,
-                      ),
-                    ),
-                    padding: const EdgeInsets.all(8.0),
-                    child: Icon(Icons.arrow_forward,
-                        color: AppColors.blue),
+                ),
+                // Row for the page indicator (dots)
+                Positioned(
+                  bottom: 60.0, // Adjust this value to position the dots exactly between the arrows
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List<Widget>.generate(3, (int index) {
+                      return Container(
+                        width: 8.0,
+                        height: 8.0,
+                        margin: const EdgeInsets.symmetric(horizontal: 4.0),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: _currentPage == index
+                              ? AppColors.blue
+                              : backgroundColor,
+                          border: Border.all(
+                            color: AppColors.blue,
+                            width: 1.5,
+                          ),
+                        ),
+                      );
+                    }),
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 16),
           ],
         ),
       ),
