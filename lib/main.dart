@@ -2,13 +2,21 @@ import 'package:evently_c13_online/core/providers/locale_provider.dart';
 import 'package:evently_c13_online/core/providers/theme_provider.dart';
 import 'package:evently_c13_online/core/theme/app_theme.dart';
 import 'package:evently_c13_online/ui/login/login_screen.dart';
+import 'package:evently_c13_online/ui/onbording/onboarding.dart';
 import 'package:evently_c13_online/ui/onbording/onboarding_setup_screen.dart';
 import 'package:evently_c13_online/ui/signup_screen/signup_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+void main() async{
+WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(
     MultiProvider(providers: [
       ChangeNotifierProvider(
@@ -43,6 +51,7 @@ class MyApp extends StatelessWidget {
       themeMode: themeProvider.themeMode,
       routes: {
         OnboardingSetupScreen.routeName: (_) => OnboardingSetupScreen(),
+        OnboardingScreens.routeName: (context) => OnboardingScreens(),
         LoginScreen.routeName: (_) => LoginScreen(),
         SignupScreen.routeName: (_) => SignupScreen(),
       },

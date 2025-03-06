@@ -16,6 +16,10 @@
   "repassword": "إعادة كلمة المرور",
   "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
   "loginNow": "تسجيل الدخول الآن",
-  "createAccount": "إنشاء حساب"
+  "createAccount": "إنشاء حساب",
+    "home" : "الرئيسية",
+    "map" : "الخريطة",
+    "profile" : "حسابي",
+    "love" : "المفضلة"
 }
 

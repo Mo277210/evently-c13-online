@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "646920831007",
+    "project_id": "event-8fc32",
+    "storage_bucket": "event-8fc32.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:646920831007:android:3147531126a722c57d152a",
+        "android_client_info": {
+          "package_name": "com.example.evently_c13_online"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "646920831007-2mb5qbivhk1gp8198v6cf66j66cd2obv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.evently_c13_online",
+            "certificate_hash": "178750113a8e4d031a5a55e2336b1411ef683c55"
+          }
+        },
+        {
+          "client_id": "646920831007-jf694dq6rkbtbh5bnjjc2jusumd96kqt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYLgkULGFp7AMjJxiCoSvZeHy1gkxoNug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "646920831007-jf694dq6rkbtbh5bnjjc2jusumd96kqt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "646920831007-olsti7pop952c42tkgb7flnucp7arf1f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.eventlyC13Online"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

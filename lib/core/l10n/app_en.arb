@@ -16,6 +16,10 @@
   "repassword" : "Re-Password",
   "alreadyHaveAccount" : "Already have an account?",
   "loginNow" : "Login Now",
-  "createAccount": "Create Account"
+  "createAccount": "Create Account",
+  "home" : "Home",
+  "map" : "Map",
+  "profile" : "Profile",
+  "love" : "Love"
 
 }

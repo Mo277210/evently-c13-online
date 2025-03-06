@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'onboarding.dart';
 class OnboardingSetupScreen extends StatelessWidget {
   static const String routeName = "/OnboardingSetupScreen";
 
@@ -70,7 +72,7 @@ class OnboardingSetupScreen extends StatelessWidget {
               const SizedBox(height: 16),
               FilledButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+                  Navigator.pushReplacementNamed(context, OnboardingScreens.routeName);
                 },
                 child: Text(appLocalizations.letsStart),
               )
